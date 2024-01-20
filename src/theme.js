@@ -1,8 +1,7 @@
 import { createContext, useState, useMemo } from "react";
 import { createTheme } from "@mui/material/styles";
 
-//color design tokens
-
+// Colour design tokens export
 export const tokens = (mode) => ({
   ...(mode === "dark"
     ? {
@@ -121,64 +120,61 @@ export const tokens = (mode) => ({
       }),
 });
 
-// mui theme settigns
-
+// mui theme settings
 export const themeSettings = (mode) => {
   const colors = tokens(mode);
-
   return {
     palette: {
       mode: mode,
-      ...colors(
-        mode === "dark"
-          ? {
-              primary: {
-                main: colors.primary[500],
-              },
-              secondary: {
-                main: colors.greenAccent[500],
-              },
-              neutral: {
-                dark: colors.grey[700],
-                main: colors.grey[500],
-                light: colors.grey[100],
-              },
-              background: {
-                default: colors.primary[500],
-              },
-            }
-          : {
-              primary: {
-                main: colors.primary[100],
-              },
-              secondary: {
-                main: colors.greenAccent[500],
-              },
-              neutral: {
-                dark: colors.grey[700],
-                main: colors.grey[500],
-                light: colors.grey[100],
-              },
-              background: {
-                default: "#fcfcf",
-              },
-            }
-      ),
+      ...(mode === "dark"
+        ? {
+            // Palette values for dark mode
+            primary: {
+              main: colors.primary[500],
+            },
+            secondary: {
+              main: colors.greenAccent[500],
+            },
+            neutral: {
+              dark: colors.grey[700],
+              main: colors.grey[500],
+              light: colors.grey[100],
+            },
+            background: {
+              default: colors.primary[500],
+            },
+          }
+        : {
+            // Palette values for light mode
+            primary: {
+              main: colors.primary[100],
+            },
+            secondary: {
+              main: colors.greenAccent[500],
+            },
+            neutral: {
+              dark: colors.grey[700],
+              main: colors.grey[500],
+              light: colors.grey[100],
+            },
+            background: {
+              default: "#fcfcfc",
+            },
+          }),
     },
-
     typography: {
-      fontFamily: ["Source Sans 3", "sans-serif"].join(","),
+      fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
       fontSize: 12,
       h1: {
-        fontFamily: ["Source Sans 3", "sans-serif"].join(","),
+        fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
         fontSize: 40,
       },
       h2: {
-        fontFamily: ["Source Sans 3", "sans-serif"].join(","),
+        fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
         fontSize: 32,
       },
       h3: {
-        fontFamily: ["Source Sans 3", "sans-serif"].join(","),
+        fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
         fontSize: 24,
       },
       h4: {
@@ -197,8 +193,7 @@ export const themeSettings = (mode) => {
   };
 };
 
-//context for color mode
-
+// Context for colour mode
 export const ColorModeContext = createContext({
   toggleColorMode: () => {},
 });
