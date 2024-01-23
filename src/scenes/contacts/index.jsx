@@ -19,7 +19,7 @@ const Contacts = () => {
     { field: "email", headerName: "Email Address", flex: 1 },
     { field: "address", headerName: "Address", flex: 1 },
     { field: "city", headerName: "City", flex: 1 },
-    { field: "zipcode", headerName: "Postcode", flex: 1 },
+    { field: "postcode", headerName: "Postcode", flex: 1 },
   ];
 
   return (
