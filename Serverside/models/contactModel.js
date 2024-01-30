@@ -34,4 +34,4 @@ const contactSchema = mongoose.Schema(
   { timestamps: true }
 );
 
-module.exports = mongoose.model("Contact", contactSchema);
+module.exports = mongoose.model("Dashboard_Contact", contactSchema);
