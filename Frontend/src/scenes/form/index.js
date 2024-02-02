@@ -13,6 +13,17 @@ const initialValues = {
   address2: "",
 };
 
+const phoneRegEx = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/;
+
+const userSchema = yup.object().shape({
+  firstName: yup.string().required("required"),
+  lastName: yup.string().required("required"),
+  email: yup.string().email("Invalid email").required("required"),
+  contact: yup.string().matcges(phoneRegEx, "Phone number is not valid").required("required"),
+  address1: yup.string().required("required"),
+  address2: yup.string().required("required"),
+});
+
 const Form = () => {
   const isNonMobile = useMediaQuery("(min-width:600px)");
 

@@ -21,7 +21,7 @@ const createContact = asyncHandler(async (req, res) => {
     res.status(400);
     throw new Error("All fields are required");
   }
-  const contact = await Contact.create({ name, email, phone, age, address, city, postcode });
+  const contact = await Contact.create({ name, email, phone, age, address, city, postcode, user_id: req.user.id });
   res.status(200).json(contact);
 });
 
@@ -48,6 +48,11 @@ const updateContact = asyncHandler(async (req, res) => {
     res.status(404);
     throw new Error("Contact not found");
   }
+  if (contact.user._id.toStrig() !== req.user.id) {
+    res.status(403);
+    throw new Error("User doesn't have permission to update other user");
+  }
+
   const updatedContact = await Contact.findByIdAndUpdate(req.params.id, req.body, { new: true });
   res.status(200).json(updatedContact);
 });
@@ -62,7 +67,11 @@ const deleteContact = asyncHandler(async (req, res) => {
     res.status(404);
     throw new Error("Contact not found");
   }
-  await Contact.remove();
+  if (contact.user._id.toStrig() !== req.user.id) {
+    res.status(403);
+    throw new Error("User doesn't have permission to update other user");
+  }
+  await Contact.deleteOne({ _id: req.params.id });
   res.status(200).json(contact);
 });
 
