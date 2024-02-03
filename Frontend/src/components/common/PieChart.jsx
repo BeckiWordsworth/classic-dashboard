@@ -4,8 +4,6 @@ import { ResponsivePie } from "@nivo/pie";
 import { tokens } from "../../theme";
 import { mockPieData as data } from "../../data/mockData";
 
-import React from "react";
-
 const PieChart = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
@@ -52,7 +50,7 @@ const PieChart = () => {
         modifiers: [["darker", 0.2]],
       }}
       arcLinkLabelsSkipAngle={10}
-      arcLinkLabelsTextColor="#333333"
+      arcLinkLabelsTextColor={colors.grey[100]}
       arcLinkLabelsThickness={2}
       arcLinkLabelsColor={{ from: "color" }}
       arcLabelsSkipAngle={10}
