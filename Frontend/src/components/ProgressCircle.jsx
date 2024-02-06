@@ -17,3 +17,5 @@ const ProgressCircle = ({ progress = "0.75", size = "40" }) => {
     ></Box>
   );
 };
+
+export default ProgressCircle;
