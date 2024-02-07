@@ -2,10 +2,10 @@
 
 Simple dashboard with data, charts, and more. 
 
-##Frontend
+## Frontend
 
 Build with React, Material UI, and NIVO charthing library
 
-##Backend
+## Backend
 
 Built with Node, Express, MongoDB
